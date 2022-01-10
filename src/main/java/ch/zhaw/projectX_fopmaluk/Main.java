@@ -1,4 +1,4 @@
-package ch.zhaw.ProjectX_fopmaluk;
+package ch.zhaw.projectX_fopmaluk;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

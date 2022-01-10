@@ -4,12 +4,13 @@ import javax.persistence.*;
 
 
 @Entity
-public class Page{
+public class Provision{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
 	protected Long id;
 	
-	
+	protected java.sql.Date startDate;
+	protected java.sql.Date endDate;
 }
