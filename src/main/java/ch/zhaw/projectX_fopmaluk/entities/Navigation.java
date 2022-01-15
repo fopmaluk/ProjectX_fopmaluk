@@ -9,5 +9,7 @@ public class Navigation {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false)
 	protected Long id;
+	
+	protected String name;
 
 }

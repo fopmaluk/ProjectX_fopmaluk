@@ -5,5 +5,12 @@ import javax.persistence.*;
 @Entity
 public class Menu extends Navigation {
 
-	protected String menuname;
+	protected boolean root;
+	
+	@ManyToOne
+	private Menu menu;
+
+	public Menu() {
+		super();
+	}
 }

@@ -13,4 +13,11 @@ public class Provision{
 	
 	protected java.sql.Date startDate;
 	protected java.sql.Date endDate;
+	protected String customerId;
+	
+	@ManyToOne
+	protected Page page;
+	
+	@ManyToOne
+	private Navigation navigation;
 }

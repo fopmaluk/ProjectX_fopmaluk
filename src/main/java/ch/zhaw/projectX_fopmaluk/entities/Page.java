@@ -12,7 +12,6 @@ public class Page {
 
 	protected String title;
 
-	// meta
 	protected String charset;
 	protected String description;
 

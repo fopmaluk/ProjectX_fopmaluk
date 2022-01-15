@@ -6,5 +6,7 @@ import javax.persistence.*;
 public class Item extends Navigation {
 
 	protected String link;
-	protected String text;
+	
+	@ManyToOne
+	private Menu menu;
 }
