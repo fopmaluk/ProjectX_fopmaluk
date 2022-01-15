@@ -19,5 +19,5 @@ public class Provision{
 	protected Page page;
 	
 	@ManyToOne
-	private Navigation navigation;
+	private Menu menu;
 }
