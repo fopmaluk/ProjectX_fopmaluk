@@ -11,7 +11,7 @@ public class Menu extends Navigation {
 	private boolean root;
 	
 	@ManyToMany
-	@JoinTable(name = "sub_menu", joinColumns = @JoinColumn(name = "menu_id"), inverseJoinColumns = @JoinColumn(name = "root_menu_id"))
+	@JoinTable(name="sub_menu")
 	private Set<Menu> menus = new LinkedHashSet<>();
 
 	public Menu() {
