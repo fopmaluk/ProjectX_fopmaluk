@@ -23,9 +23,9 @@ public class BaseNavigationController<T extends Navigation> extends BaseControll
     @GetMapping(value = "/name/{name}")
     public ResponseEntity<List<T>> readByName(@PathVariable String name) {
         try {
-            List<T> readPerson = this.baseNavigationRepository.findByName(name);
-            super.logger.info("Read " + readPerson.size() + " " + super.entityName + " by name [" + name + "]");
-            return new ResponseEntity<>(readPerson, HttpStatus.OK);
+            List<T> readNavigation = this.baseNavigationRepository.findByName(name);
+            super.logger.info("Read " + readNavigation.size() + " " + super.entityName + " by name [" + name + "]");
+            return new ResponseEntity<>(readNavigation, HttpStatus.OK);
         } catch (Exception e) {
             super.logger.severe("Failed to read " + super.entityName + " by name [" + name + "]");
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

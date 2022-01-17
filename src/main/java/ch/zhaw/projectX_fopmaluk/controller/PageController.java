@@ -1,5 +1,11 @@
 package ch.zhaw.projectX_fopmaluk.controller;
 
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,4 +22,16 @@ public class PageController extends BaseController<Page> {
 		super(baseRepository);
         this.pageRepository = pageRepository;
 	}
+	
+	@GetMapping(value = "/title/{title}")
+    public ResponseEntity<List<Page>> readByName(@PathVariable String title) {
+        try {
+            List<Page> readTitles = this.pageRepository.findByTitle(title);
+            super.logger.info("Read " + readTitles.size() + " " + super.entityName + " by name [" + title + "]");
+            return new ResponseEntity<>(readTitles, HttpStatus.OK);
+        } catch (Exception e) {
+            super.logger.severe("Failed to read " + super.entityName + " by name [" + title + "]");
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
