@@ -8,6 +8,6 @@ import ch.zhaw.projectX_fopmaluk.entities.Page;
 
 public interface PageRepository extends BaseRepository<Page> {
 
-	@Query("select p from #{#entityName} p where p.title = ?1")
+	@Query("select p from Page p where p.title = ?1")
     List<Page> findByTitle(String title);
 }

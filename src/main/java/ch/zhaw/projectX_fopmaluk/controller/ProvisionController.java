@@ -1,6 +1,6 @@
 package ch.zhaw.projectX_fopmaluk.controller;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,22 +23,14 @@ public class ProvisionController extends BaseController<Provision> {
 	}
 	
 	@GetMapping(value = "/edges")
-	public ResponseEntity<List<Provision>> findEdges() {
-		List<Provision> edgesFound = this.provisionRepository.findEdges();
-        super.logger.info("Read " + edgesFound.size() + " " + super.entityName);
-        return new ResponseEntity<>(edgesFound, HttpStatus.OK);
-	}
-		/*try {
-            
+	public ResponseEntity<Collection<Long>> findEdges() {
+		try {
+			Collection<Long> edgesFound = this.provisionRepository.findEdges();
+	        super.logger.info("Read " + edgesFound.size() + " " + super.entityName);
+	        return new ResponseEntity<>(edgesFound, HttpStatus.OK);
         } catch (Exception e) {
             super.logger.severe("Failed to read " + super.entityName);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-	
-	/*	public List<Provision> findALLmains() {
-
-	provisionRepository.findEdges();
-	return (List<Provision>) this.provisionRepository.findEdges();
-} */
 }
